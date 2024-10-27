@@ -22,10 +22,10 @@
         }
         header {
             text-align: center;
-            color: #ff8fb2;
+            color: #d07fb5;
         }
         header h1 {
-            font-size: 2em;
+            font-size: 2.2em;
             margin: 0;
             color: #d07fb5;
         }
@@ -38,37 +38,41 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-size: 1.05em;
         }
         th, td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #f2d9e6;
         }
         th {
-            background-color: #ffe6f0;
+            background-color: #ffd1e1;
             color: #d07fb5;
             font-weight: bold;
+            font-size: 1.1em;
         }
         td {
             color: #555;
         }
         .button {
-            padding: 5px 10px;
+            padding: 6px 12px;
             background-color: #ff8fb2;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.9em;
-            transition: 0.3s;
+            transition: transform 0.2s, background-color 0.3s;
         }
         .button:hover {
             background-color: #ff6f91;
+            transform: scale(1.05);
         }
         .song-name {
             cursor: pointer;
             color: #d07fb5;
             text-decoration: underline;
+            transition: color 0.2s;
         }
         .song-name:hover {
             color: #b06b8f;
@@ -78,6 +82,19 @@
             color: #777;
             font-size: 0.9em;
             margin-top: 10px;
+        }
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d07fb5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -142,10 +159,12 @@
     <p class="copy-tip">点击歌曲名即可复制点歌信息</p>
 </div>
 
+<div id="toast" class="toast">已复制点歌信息！</div>
+
 <script>
     function copyText(text) {
         navigator.clipboard.writeText(text).then(() => {
-            alert(`已复制：${text}\n可以在点歌时直接粘贴使用！`);
+            showToast();
         }).catch(err => {
             console.error('复制失败！', err);
         });
@@ -153,6 +172,14 @@
 
     function openLink(url) {
         window.open(url, '_blank');
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 2000);
     }
 </script>
 
