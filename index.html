@@ -3,86 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站</title>
+    <title>小鹿的直播点歌台</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-        nav a {
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        nav a:hover {
-            background-color: #555;
+            background: linear-gradient(135deg, #ffe6f0, #e6f2ff);
+            color: #333;
         }
         .container {
+            max-width: 900px;
+            margin: 30px auto;
             padding: 20px;
-            max-width: 1000px;
-            margin: auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        footer {
+        header {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
+            color: #ff8fb2;
+        }
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            color: #d07fb5;
+        }
+        header p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #888;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #ffe6f0;
+            color: #d07fb5;
+            font-weight: bold;
+        }
+        td {
+            color: #555;
+        }
+        .button {
+            padding: 5px 10px;
+            background-color: #ff8fb2;
             color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #ff6f91;
+        }
+        .song-name {
+            cursor: pointer;
+            color: #d07fb5;
+            text-decoration: underline;
+        }
+        .song-name:hover {
+            color: #b06b8f;
+        }
+        .copy-tip {
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
+<div class="container">
     <header>
-        <h1>欢迎来到我的网站</h1>
-        <p>这是一个简单的HTML页面示例</p>
+        <h1>小鹿的直播点歌台 🎶</h1>
+        <p>每晚23:00至凌晨3:00，为您带来音乐治愈之旅</p>
+        <p>粉丝交流群：私信小鹿</p>
     </header>
 
-    <nav>
-        <a href="#home">主页</a>
-        <a href="#about">关于我们</a>
-        <a href="#services">服务</a>
-        <a href="#contact">联系我们</a>
-    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>歌名</th>
+                <th>歌手</th>
+                <th>类别</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><span class="song-name" onclick="copyText('点歌 可爱女人')">可爱女人</span></td>
+                <td>周杰伦</td>
+                <td>流行, 甜歌</td>
+                <td><button class="button" onclick="openLink('https://www.bilibili.com/video/BV1YS4y1J7sk')">可爱女人伴奏</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><span class="song-name" onclick="copyText('点歌 星晴')">星晴</span></td>
+                <td>周杰伦</td>
+                <td>流行, 治愈</td>
+                <td><button class="button" onclick="openLink('https://www.bilibili.com/video/BV1Ro4y1x7BZ')">星晴伴奏</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span class="song-name" onclick="copyText('点歌 龙卷风')">龙卷风</span></td>
+                <td>周杰伦</td>
+                <td>流行, 伤感</td>
+                <td><button class="button" onclick="openLink('https://www.bilibili.com/video/BV1dK411f7tP')">龙卷风伴奏</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><span class="song-name" onclick="copyText('点歌 我不配')">我不配</span></td>
+                <td>周杰伦</td>
+                <td>流行, 治愈</td>
+                <td><button class="button" onclick="openLink('https://www.bilibili.com/video/BV1eG411872W')">我不配伴奏</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><span class="song-name" onclick="copyText('点歌 全是爱')">全是爱</span></td>
+                <td>凤凰传奇</td>
+                <td>流行, 民族风</td>
+                <td><button class="button" onclick="openLink('https://www.bilibili.com/video/BV1vR4y1Z78o')">全是爱伴奏</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="container">
-        <section id="home">
-            <h2>主页</h2>
-            <p>欢迎来到我们的网站！我们提供各种服务，致力于满足您的需求。</p>
-        </section>
+    <p class="copy-tip">点击歌曲名即可复制点歌信息</p>
+</div>
 
-        <section id="about">
-            <h2>关于我们</h2>
-            <p>我们是一家充满激情的团队，致力于提供最好的服务体验。</p>
-        </section>
+<script>
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert(`已复制：${text}\n可以在点歌时直接粘贴使用！`);
+        }).catch(err => {
+            console.error('复制失败！', err);
+        });
+    }
 
-        <section id="services">
-            <h2>服务</h2>
-            <p>我们提供网页设计、开发和优化等多种服务，帮助您的业务更上一层楼。</p>
-        </section>
-
-        <section id="contact">
-            <h2>联系我们</h2>
-            <p>有任何问题或需求，请随时与我们联系。</p>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 我的公司. 保留所有权利。</p>
-    </footer>
+    function openLink(url) {
+        window.open(url, '_blank');
+    }
+</script>
 
 </body>
 </html>
